@@ -133,19 +133,19 @@ export function Card({
   return (
     <section className={cn('surface overflow-hidden', className)}>
       {(title || actions) && (
-        <header className="flex flex-wrap items-start justify-between gap-3 border-b border-ink-200/80 px-4 py-3 sm:px-5">
+        <header className="flex flex-wrap items-start justify-between gap-3 border-b border-ink-200/70 px-4 py-4 sm:px-5">
           <div className="flex min-w-0 items-start gap-3">
             {icon && (
               <span
                 aria-hidden="true"
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-navy-50 text-[15px] text-navy-700 ring-1 ring-inset ring-navy-100"
+                className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-navy-50 text-[15px] text-navy-700 ring-1 ring-inset ring-navy-100"
               >
                 {icon}
               </span>
             )}
             <div className="min-w-0">
               {title && (
-                <h2 className="text-[13.5px] font-semibold text-ink-900 sm:text-sm">{title}</h2>
+                <h2 className="text-[13.5px] font-bold tracking-tight text-ink-900 sm:text-sm">{title}</h2>
               )}
               {description && (
                 <p className="mt-0.5 text-xs leading-relaxed text-ink-500">{description}</p>
@@ -464,10 +464,10 @@ export function PageHeader({
   actions?: ReactNode;
 }): JSX.Element {
   return (
-    <header className="mb-5 flex flex-col gap-3 border-b border-ink-200 pb-4 sm:flex-row sm:items-end sm:justify-between">
+    <header className="mb-6 flex flex-col gap-3 border-b border-ink-200/80 pb-5 sm:flex-row sm:items-end sm:justify-between">
       <div className="space-y-1.5">
         {breadcrumb && <Breadcrumb items={breadcrumb} />}
-        <h1 className="text-xl font-bold tracking-tight text-ink-900 sm:text-2xl">{title}</h1>
+        <h1 className="text-2xl font-black tracking-tight text-ink-900 sm:text-3xl">{title}</h1>
         {description && <p className="max-w-3xl text-sm text-ink-500">{description}</p>}
       </div>
       {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}
@@ -507,7 +507,7 @@ export function StatCard({
   );
 
   const baseClass =
-    'w-full rounded-xl border border-ink-200 bg-white p-4 text-left shadow-card transition';
+    'relative w-full overflow-hidden rounded-2xl border border-white/80 bg-white/95 p-4 text-left shadow-card transition';
 
   if (onClick) {
     return (

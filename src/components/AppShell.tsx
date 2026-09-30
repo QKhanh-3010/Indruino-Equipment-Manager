@@ -140,28 +140,28 @@ export function AppShell(): JSX.Element {
   };
 
   return (
-    <div className="min-h-screen bg-ink-50">
+    <div className="min-h-screen">
       <aside
         className={cn(
-          'fixed inset-y-0 left-0 z-30 w-72 overflow-y-auto bg-navy-900 text-navy-100 transition-transform lg:translate-x-0',
+          'fixed inset-y-0 left-0 z-30 w-72 overflow-y-auto bg-[linear-gradient(165deg,#102c48_0%,#132a44_48%,#0b1c30_100%)] text-navy-100 shadow-[12px_0_40px_-24px_rgba(11,28,48,0.8)] transition-transform lg:translate-x-0',
           menuOpen ? 'translate-x-0' : '-translate-x-full',
         )}
         aria-label="Điều hướng chính"
       >
-        <div className="flex items-center gap-3 border-b border-navy-800 px-5 py-4">
+        <div className="flex items-center gap-3 border-b border-white/10 px-5 py-5">
           <span
             aria-hidden="true"
-            className="flex h-9 w-9 items-center justify-center rounded-lg bg-navy-700 text-base font-bold text-white"
+            className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-400 text-sm font-black tracking-tight text-navy-950 shadow-lg shadow-amber-950/20"
           >
             IN
           </span>
           <div>
-            <p className="text-sm font-bold text-white">Indruino Equipment</p>
-            <p className="text-[11px] text-navy-300">Phòng Sản xuất</p>
+            <p className="text-sm font-bold tracking-tight text-white">Indruino Equipment</p>
+            <p className="mt-0.5 text-[11px] text-navy-300">Phòng Sản xuất</p>
           </div>
         </div>
 
-        <nav className="space-y-5 px-3 py-4">
+        <nav className="space-y-5 px-3 py-5">
           {visibleGroups.map((group) => (
             <div key={group.title}>
               <p className="px-3 pb-1.5 text-[10px] font-semibold uppercase tracking-wider text-navy-400">
@@ -178,10 +178,10 @@ export function AppShell(): JSX.Element {
                         onClick={() => setMenuOpen(false)}
                         className={({ isActive }) =>
                           cn(
-                            'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-300',
+                            'flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-300',
                             isActive
-                              ? 'bg-navy-700 text-white'
-                              : 'text-navy-200 hover:bg-navy-800 hover:text-white',
+                              ? 'bg-white/[0.12] text-white shadow-inner shadow-white/5'
+                              : 'text-navy-200 hover:bg-white/[0.08] hover:text-white',
                           )
                         }
                       >
@@ -203,7 +203,7 @@ export function AppShell(): JSX.Element {
           ))}
         </nav>
 
-        <div className="mx-3 mb-4 rounded-lg bg-navy-800/70 p-3 text-[11px] leading-relaxed text-navy-200">
+        <div className="mx-3 mb-4 rounded-xl border border-white/10 bg-white/[0.06] p-3 text-[11px] leading-relaxed text-navy-200">
           <p className="font-semibold text-navy-100">{role?.name ?? '—'}</p>
           <p className="mt-1">{role?.description}</p>
         </div>
@@ -219,8 +219,8 @@ export function AppShell(): JSX.Element {
       )}
 
       <div className="lg:pl-72">
-        <header className="sticky top-0 z-10 border-b border-ink-200 bg-white/95 backdrop-blur">
-          <div className="flex items-center justify-between gap-3 px-4 py-3 sm:px-6">
+        <header className="sticky top-0 z-10 border-b border-white/70 bg-white/80 backdrop-blur-xl">
+          <div className="flex items-center justify-between gap-3 px-4 py-3.5 sm:px-6">
             <div className="flex items-center gap-3">
               <button
                 type="button"
@@ -231,7 +231,7 @@ export function AppShell(): JSX.Element {
                 ☰
               </button>
               <div>
-                <p className="text-sm font-semibold text-ink-800">
+                <p className="text-sm font-bold tracking-tight text-ink-900">
                   Hệ thống quản lý trang thiết bị – Phòng Sản xuất
                 </p>
                 <p className="text-[11px] text-ink-500">
@@ -324,8 +324,10 @@ export function AppShell(): JSX.Element {
           </div>
         </header>
 
-        <main className="px-4 py-5 sm:px-6 lg:px-8">
-          <Outlet />
+        <main className="page-enter px-4 py-6 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-[1600px]">
+            <Outlet />
+          </div>
         </main>
 
         <footer className="border-t border-ink-200 px-4 py-4 text-center text-[11px] text-ink-500 sm:px-6">

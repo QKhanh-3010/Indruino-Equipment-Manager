@@ -34,14 +34,17 @@ export function LoginPage(): JSX.Element {
   };
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-2">
+    <div className="grid min-h-screen bg-[#f4f7f8] lg:grid-cols-[1.08fr_0.92fr]">
       {/* ------------- Cot gioi thieu thuong hieu ------------- */}
-      <div className="hidden flex-col justify-between bg-navy-900 p-10 text-navy-100 lg:flex">
+      <div className="relative hidden flex-col justify-between overflow-hidden bg-[linear-gradient(145deg,#102c48_0%,#132a44_48%,#0b1c30_100%)] p-10 text-navy-100 lg:flex xl:p-14">
+        <div className="pointer-events-none absolute inset-0 opacity-40 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:32px_32px]" />
+        <div className="pointer-events-none absolute -right-20 top-1/3 h-72 w-72 rounded-full border-[32px] border-amber-400/10" />
+        <div className="pointer-events-none absolute -right-8 top-[38%] h-48 w-48 rounded-full border border-amber-300/20" />
         <div>
-          <div className="flex items-center gap-3">
+          <div className="relative flex items-center gap-3">
             <span
               aria-hidden="true"
-              className="flex h-11 w-11 items-center justify-center rounded-xl bg-navy-700 text-lg font-bold text-white"
+              className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-400 text-lg font-black tracking-tight text-navy-950 shadow-lg shadow-black/20"
             >
               IN
             </span>
@@ -51,38 +54,44 @@ export function LoginPage(): JSX.Element {
             </div>
           </div>
 
-          <h1 className="mt-12 text-3xl font-bold leading-snug text-white">
-            Quản lý trang thiết bị &amp; vật tư
-            <br /> Phòng Sản xuất tập trung, minh bạch
-          </h1>
-          <p className="mt-4 max-w-lg text-sm leading-relaxed text-navy-200">
-            Hệ thống quản lý hai nhóm thiết bị: <strong>thiết bị điện dân dụng</strong> (quạt, ổ cắm,
-            đèn chiếu sáng…) và <strong>thiết bị kỹ thuật</strong> (máy khoan, máy hàn, đồng hồ đo
-            điện, tủ điện…), tập trung vào nghiệp vụ mượn – trả, nhập kho, bảo trì – sửa chữa, kiểm kê
-            và báo cáo.
+          <div className="relative mt-16 max-w-xl">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-amber-300">Vận hành gọn gàng</p>
+            <h1 className="text-4xl font-black leading-[1.12] tracking-tight text-white xl:text-5xl">
+              Mọi thiết bị,
+              <br /> một nơi kiểm soát.
+            </h1>
+          </div>
+          <p className="relative mt-5 max-w-lg text-sm leading-relaxed text-navy-200">
+            Quản lý mượn – trả, nhập kho, bảo trì và kiểm kê trong một không gian làm việc rõ ràng,
+            minh bạch cho Phòng Sản xuất.
           </p>
 
-          <ul className="mt-8 space-y-2 text-sm text-navy-200">
-            <li>✓ Mỗi thiết bị có mã định danh duy nhất và mã QR để quét khi nhận/trả/kiểm kê</li>
-            <li>✓ Kiểm tra quyền ở tầng nghiệp vụ, chống thao tác vượt quyền</li>
-            <li>✓ Nhật ký hoạt động (audit log) chỉ đọc cho mọi thao tác quan trọng</li>
-            <li>✓ Cảnh báo quá hạn trả, cảnh báo tồn kho thấp theo định mức Min/Max</li>
+          <ul className="relative mt-8 grid max-w-xl gap-3 sm:grid-cols-2 text-sm text-navy-200">
+            <li className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5">✓ QR nhận, trả và kiểm kê</li>
+            <li className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5">✓ Phân quyền theo vai trò</li>
+            <li className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5">✓ Nhật ký mọi thao tác</li>
+            <li className="rounded-xl border border-white/10 bg-white/[0.06] px-3 py-2.5">✓ Cảnh báo quá hạn, tồn kho</li>
           </ul>
         </div>
-        <p className="text-xs text-navy-400">
+        <p className="relative text-xs text-navy-400">
           Bản demo: dữ liệu được lưu cục bộ trên trình duyệt, không gửi lên máy chủ.
         </p>
       </div>
 
       {/* ------------- Cot dang nhap ------------- */}
-      <div className="flex items-center justify-center bg-ink-50 p-6 sm:p-10">
-        <div className="w-full max-w-md space-y-5">
+      <div className="flex items-center justify-center p-6 sm:p-10 lg:p-14">
+        <div className="w-full max-w-md space-y-6">
           <div className="lg:hidden">
-            <p className="text-lg font-bold text-navy-900">Indruino Equipment Manager</p>
-            <p className="text-xs text-ink-500">Hệ thống quản lý trang thiết bị Phòng Sản xuất</p>
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-amber-400 text-sm font-black text-navy-950">IN</span>
+              <div>
+                <p className="text-lg font-bold tracking-tight text-navy-900">Indruino Equipment</p>
+                <p className="text-xs text-ink-500">Phòng Sản xuất · Đăng nhập hệ thống</p>
+              </div>
+            </div>
           </div>
 
-          <Card title="Đăng nhập hệ thống" description="Sử dụng tài khoản được cấp bởi Admin.">
+          <Card title="Chào mừng trở lại" description="Đăng nhập để tiếp tục quản lý thiết bị." className="shadow-pop">
             <form
               className="space-y-4"
               onSubmit={(e) => {
@@ -121,16 +130,13 @@ export function LoginPage(): JSX.Element {
                 </p>
               )}
 
-              <Button type="submit" block size="lg" loading={busy}>
+              <Button type="submit" block size="lg" loading={busy} className="shadow-lg shadow-navy-900/10">
                 Đăng nhập
               </Button>
             </form>
           </Card>
 
-          <Card
-            title="Đăng nhập nhanh 4 vai trò demo"
-            description={`Mật khẩu chung cho tất cả tài khoản demo: ${demoPassword}`}
-          >
+          <Card title="Thử nhanh theo vai trò" description={`Mật khẩu demo dùng chung: ${demoPassword}`}>
             <ul className="space-y-2">
               {DEMO_ACCOUNTS.map((account) => (
                 <li key={account.username}>
@@ -141,10 +147,10 @@ export function LoginPage(): JSX.Element {
                       setPassword(demoPassword);
                       submit(account.username, demoPassword);
                     }}
-                    className="flex w-full items-start justify-between gap-3 rounded-lg border border-ink-200 px-3 py-2.5 text-left transition hover:border-navy-300 hover:bg-navy-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-300"
+                    className="group flex w-full items-start justify-between gap-3 rounded-xl border border-ink-200/80 bg-white/70 px-3 py-3 text-left transition duration-150 hover:-translate-y-0.5 hover:border-navy-300 hover:bg-navy-50 hover:shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-300"
                   >
                     <span>
-                      <span className="block text-sm font-semibold text-ink-800">
+                      <span className="block text-sm font-bold text-ink-800 group-hover:text-navy-800">
                         {ROLE_LABELS[account.role]}
                       </span>
                       <span className="block text-[11px] text-ink-500">{account.note}</span>

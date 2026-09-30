@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Inter + Be Vietnam Pro: ho tro day du dau tieng Viet
-        sans: ['Inter', '"Be Vietnam Pro"', 'Segoe UI', 'Roboto', 'Arial', 'sans-serif'],
+        // Manrope tao dang chu hien dai, Be Vietnam Pro giu tieng Viet ro rang.
+        sans: ['"Be Vietnam Pro"', '"Segoe UI Variable"', '"Segoe UI"', 'sans-serif'],
+        display: ['"Manrope"', '"Be Vietnam Pro"', '"Segoe UI Variable"', 'sans-serif'],
       },
       colors: {
         // Xanh navy thuong hieu Indruino (mau chu dao)
@@ -47,7 +48,7 @@ export default {
         // Bong nhe cho bang/hang du lieu
         xs: '0 1px 2px 0 rgba(15, 23, 42, 0.04)',
         // Bong cho the noi dung
-        card: '0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 1px 3px 0 rgba(15, 23, 42, 0.06)',
+        card: '0 1px 2px 0 rgba(15, 23, 42, 0.04), 0 8px 24px -14px rgba(15, 23, 42, 0.28)',
         // Bong cho dropdown, popover, modal
         pop: '0 10px 30px -12px rgba(11, 28, 48, 0.28), 0 4px 12px -6px rgba(11, 28, 48, 0.16)',
         // Vien sang cho trang thai focus
