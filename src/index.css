@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   HE THONG THIET KE (design tokens) — phong cach doanh nghiep Indruino
+   Nen xam rat nhat, mat the trang, vien mong, bong nhe, chu dam vua phai.
+   ============================================================================ */
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#f6f8fb] font-sans text-[13.5px] text-ink-800 antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'tnum';
+  }
+
+  /* Tieu de dam va chat hon, dung cho giao dien nghiep vu */
+  h1,
+  h2,
+  h3 {
+    @apply tracking-tight text-ink-900;
+  }
+
+  /* Vien tap trung ro rang khi thao tac bang ban phim */
+  :focus-visible {
+    outline: 2px solid theme('colors.navy.500');
+    outline-offset: 1px;
+  }
+
+  ::selection {
+    background-color: theme('colors.navy.200');
+    color: theme('colors.navy.900');
+  }
+
+  table {
+    @apply border-collapse;
+  }
+
+  /* So lieu can thang hang trong bang nghiep vu */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  ::-webkit-scrollbar {
+    height: 10px;
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full border-2 border-transparent bg-clip-content;
+    background-color: #c8d2de;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #aab7c6;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+
+@layer components {
+  /* Mat phang noi dung chuan: the trang + vien mong + bong nhe */
+  .surface {
+    @apply rounded-xl border border-ink-200/80 bg-white shadow-card;
+  }
+
+  /* Duong ke mong giua cac khoi */
+  .hairline {
+    @apply border-ink-200/80;
+  }
+
+  /* Nhan phu (label nho, chu hoa, gian chu) */
+  .label-caps {
+    @apply text-2xs font-semibold uppercase tracking-[0.06em] text-ink-500;
+  }
+
+  /* The thong ke: co vach mau nhan ben trai theo tone */
+  .stat-accent {
+    @apply absolute inset-y-0 left-0 w-1 rounded-l-xl;
+  }
+
+  /* Hang bang du lieu co vien trai khi hover (de quet mat hon) */
+  .row-hover {
+    @apply transition-colors hover:bg-navy-50/50;
+  }
+}
+
+@layer utilities {
+  /* Chi hien thi khi in (dung cho bien ban, tem QR) */
+  .print-only {
+    display: none;
+  }
+
+  /* An thanh cuon nhung van cuon duoc (cho danh sach dai trong card) */
+  .scroll-thin {
+    scrollbar-width: thin;
+  }
+}
+
+/**
+ * In tem QR: chi in vung #qr-print-area va an toan bo giao dien con lai.
+ * Duoc kich hoat bang class .printing-labels tren <body> (xem QrLabel.tsx).
+ */
+@media print {
+  body.printing-labels > * {
+    visibility: hidden;
+  }
+
+  body.printing-labels #qr-print-area,
+  body.printing-labels #qr-print-area * {
+    visibility: visible;
+  }
+
+  body.printing-labels #qr-print-area {
+    position: absolute;
+    inset: 0;
+    padding: 10mm;
+    background: #fff;
+  }
+
+  body.printing-labels #qr-print-area > div {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6mm;
+  }
+
+  body.printing-labels #qr-print-area .rounded-md {
+    border: 1px dashed #94a3b8;
+    border-radius: 0;
+    padding: 3mm;
+    break-inside: avoid;
+  }
+}
